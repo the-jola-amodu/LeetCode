@@ -1,11 +1,8 @@
-class Solution:
-    def removeAnagrams(self, words: List[str]) -> List[str]:
-        to_pop = []
+class Solution(object):
+    def removeAnagrams(self, words):
+        result = [words[0]]
         for i in range(1, len(words)):
-            if sorted(words[i]) == sorted(words[i - 1]):
-                to_pop.append(i)
-        to_pop = sorted(to_pop, reverse=True)
-        for index in to_pop:
-            words.pop(index)
-        return words
+            if ''.join(sorted(words[i])) != ''.join(sorted(words[i - 1])):
+                result.append(words[i])
+        return result
         
