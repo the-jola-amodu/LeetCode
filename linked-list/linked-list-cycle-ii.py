@@ -6,14 +6,27 @@
 
 class Solution(object):
     def detectCycle(self, head):
-        seen = []
+        fast = head
+        slow = head
 
-        curr = head
-        while curr:
-            if curr in seen:
-                return curr
-            seen.append(curr)
-            curr = curr.next
+        while True:
+            if not fast or not fast.next:
+                return None
 
-        return None
+            slow = slow.next
+            fast = fast.next.next
+
+            if slow == fast:
+                break
+
+        if fast != slow:
+            return None
+
+        fast = head
+        while fast != slow:
+            fast = fast.next
+            slow = slow.next
+
+        return fast
+
         
