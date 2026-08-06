@@ -10,9 +10,9 @@ class Solution(object):
 
         curr = head
         while curr:
-            if curr.val in seen:
+            if curr in seen:
                 return curr
-            seen.append(curr.val)
+            seen.append(curr)
             curr = curr.next
 
         return None
