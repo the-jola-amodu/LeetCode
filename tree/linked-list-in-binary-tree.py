@@ -31,10 +31,9 @@ class Solution(object):
 
             if head.val == root.val:
                 check(head, root)
-            else:
-                if root.left:
-                    traverse(head, root.left)
-                if root.right:
-                    traverse(head, root.right)
+            if root.left:
+                traverse(head, root.left)
+            if root.right:
+                traverse(head, root.right)
         traverse(head, root)
         return found[0]
