@@ -11,7 +11,7 @@ class Solution:
                 return recurse(i + 1, j + 1)
 
             if (i < len(s)) and p[j] == '*':
-                return recurse(i + 1, j) or recurse(i + 1, j + 1)
+                return recurse(i + 1, j) or recurse(i + 1, j + 1) or recurse(i, j + 1)
 
             if (i >= len(s)) and p[j] == '*' and j == len(p) - 1:
                 return True
